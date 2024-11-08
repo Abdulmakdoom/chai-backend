@@ -1,6 +1,6 @@
 import express from "express"; // import for asynchronous // require for synchronus working
 import cors from "cors"; // provide security mean Example - Ghar kay ander sbko allow mat kro jinko allow(Whitelist) kya ha sirf unko hi allow kro
-import cookieParser from "cookie-parser";
+import cookieParser from "cookie-parser"; // npm i cookie-parser cors
 
 // middleware - bech main checking krta hai like userid and password shi h ya nhi
 
