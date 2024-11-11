@@ -10,11 +10,23 @@ const app = express()
 app.use(cors( {
     origin: process.env.CORS_ORIGIN,
     credentials: true
-}))
+})) 
 
 app.use(express.json({limit: "16kb"}))
 app.use(express.urlencoded({extended: true, limit: "16kb"}))
 app.use(express.static("public"))
 app.use(cookieParser()) // server sai user kay browser ki cookie ko access bhi kr paau aur usay set(edit) bhi kr paau via CRUD operation
 
-export { app }
+
+//routes import  ( userRouter -- apni marzi sai tabhi name day saty hai agar "export default" ho raha ho)
+import userRouter from "./routes/user.routes.js"
+
+
+//routes declaration
+
+//----app.get isly use kr rahay thay kyu ki hum yahi router aur controller likh rahe tha so in this we use app.use bcz router/controller alag alag jgha hai
+// ab router ko lany ka liya middleware lana hoga 
+app.use("/api/v1/users", userRouter) // ispar jatay hii userRouter ko activate krdo
+
+// http://localhost:8080/api/v1/users/register
+export { app } 
