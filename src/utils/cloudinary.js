@@ -1,6 +1,7 @@
 import { v2 as cloudinary } from 'cloudinary';
 import fs from "fs"  // fs -- file system (byDefault atii hai node.js kay saath)  (work - read, write, remove, sync, async... etc)
 
+// Read cloudinary document
 
 // Configuration
 cloudinary.config({ 
@@ -17,8 +18,7 @@ const uploadOnCloudinary = async (localFilePath) => {  // jo bhi parametre ayee 
             resource_type: "auto"
         })
         // file has been uploaded successfull
-        // console.log("file is uploaded on cloudinary ", response.url);
-        fs.unlinkSync(localFilePath)
+        console.log("file is uploaded on cloudinary ", response.url);
         return response;
 
     } catch (error) {
